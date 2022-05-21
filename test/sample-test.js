@@ -17,6 +17,12 @@ describe("This is our main testing scope", function () {
         assert.equal(await faucet.owner(), signer);
     });
 
+    it("It should only allow owner to call selfdestruct", async function () {
+        //  how to get a different signer??
+        let notOwner =
+            assert.equal(await faucet.owner(), signer);
+    });
+
     it("It should withdraw the correct amount", async function () {
         let withdrawAmount = ethers.utils.parseUnits(".11", "ether");
         await expect(faucet.withdraw(withdrawAmount)).to.be.reverted;
